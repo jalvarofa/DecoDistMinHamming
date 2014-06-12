@@ -104,4 +104,12 @@ public class HammingDistance {
 		}
 		return cont;
 	}
+	
+	public String decoderAuto(String s) {
+		
+		
+		
+		return s;
+		
+	}
 }
