@@ -1,4 +1,7 @@
 package hamming;
+
+import java.util.ArrayList;
+
 public class HammingDistance {
 
 	/**
@@ -64,6 +67,34 @@ public class HammingDistance {
 		return minDistance;
 
 	}
+	
+	/**
+	 * 
+	 * @param s
+	 * @return
+	 */
+	public int getMinimumDistance(String s) {
+		int minDistance = Integer.MAX_VALUE;
+		int counter = 0;
+		String[] aux = createMatrix(s, calculateNumWords(s));
+
+		for (int i = 1; i < aux.length; i++) {
+			counter = 0;
+			for (int j = 1; j <= aux[i].length(); j++) {
+				if (aux[i - 1].charAt(j - 1) != aux[i]
+						.charAt(j - 1)) {
+					counter++;
+				}
+			}
+
+			if (counter == 0)
+				return counter;
+			if (counter < minDistance)
+				minDistance = counter;
+		}
+
+		return minDistance;
+	}
 
 	/**
 	 * 
@@ -106,10 +137,36 @@ public class HammingDistance {
 	}
 	
 	public String decoderAuto(String s) {
+		String auxCode = null;
+		String wordDecoded = null;
+		int min = Integer.MAX_VALUE;
+		int minDistance = 0;
+		ArrayList<String> decodedWords = new ArrayList<>();
+		int random = 0;
 		
+		for (int i = 0; i < this.code.length; i++) {
+			auxCode = s+";"+this.code[i];
+			minDistance = getMinimumDistance(auxCode);
+			
+			if (minDistance < min) {
+				decodedWords.clear();
+				decodedWords.add(this.code[i]);
+				min = minDistance;
+			}else if (minDistance == min) {
+				decodedWords.add(this.code[i]);
+			}
+		}
 		
+		if (decodedWords.size() > 1) {
+			
+			random  = (int) Math.floor(Math.random()*decodedWords.size());
+			
+			wordDecoded = decodedWords.get(random);
+		}else{
+			wordDecoded = decodedWords.get(0);
+		}
 		
-		return s;
+		return wordDecoded;
 		
 	}
 }
