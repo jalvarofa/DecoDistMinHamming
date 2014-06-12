@@ -4,9 +4,11 @@ public class HammingDistance {
 	 * Codigo C
 	 */
 	private String code[];
+	private int numWords;
 
-	public HammingDistance(String c, int n) {
-		code = createMatrix(c, n);
+	public HammingDistance(String c) {
+		this.numWords = calculateNumWords(c);
+		this.code = createMatrix(c, this.numWords);
 	}
 
 	/**
@@ -90,7 +92,7 @@ public class HammingDistance {
 	 * @param s
 	 * @return
 	 */
-	public int numWords(String s) {
+	public int calculateNumWords(String s) {
 		char toCompare = ';';
 		int cont = 1; //iniciamos en 1 ya que siempre habra una palabra mas que el numero de comas
 		char[] caracteres = s.toCharArray();
