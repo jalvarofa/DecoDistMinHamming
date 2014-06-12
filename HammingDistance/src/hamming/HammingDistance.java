@@ -1,3 +1,4 @@
+package hamming;
 public class HammingDistance {
 
 	/**
@@ -42,7 +43,6 @@ public class HammingDistance {
 	 * @return
 	 */
 	public int getMinimumDistance() {
-		// TODO meter numeros en variables para verlas al hacer debug
 		int minDistance = Integer.MAX_VALUE;
 		int counter = 0;
 

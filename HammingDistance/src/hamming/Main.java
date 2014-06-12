@@ -1,3 +1,4 @@
+package hamming;
 
 public class Main {
 
