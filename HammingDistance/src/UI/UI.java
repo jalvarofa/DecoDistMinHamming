@@ -9,10 +9,11 @@ public class UI {
 	
 	public HammingDistance hammingDistance;
 	public Simulator simulator;
+	private String code;
 	
-	public UI(String c){
-		this.hammingDistance = new HammingDistance(c);
-		this.simulator = new Simulator(c);
+	public UI(String s){
+		this.hammingDistance = new HammingDistance(s);
+		this.simulator = new Simulator(s);
 	}
 	
 	public int getMinimumDistance(){
@@ -29,6 +30,14 @@ public class UI {
 	
 	public void simulateWords(int numSimulations){
 		this.simulator.simulateWords(numSimulations);
+	}
+	
+	public void setCode(String c){
+		this.code = c;
+	}
+	
+	public String decoderAuto(String c){
+		return this.hammingDistance.decoderAuto(c);
 	}
 	
 	
