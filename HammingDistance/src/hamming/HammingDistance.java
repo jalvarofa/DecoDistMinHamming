@@ -141,7 +141,7 @@ public class HammingDistance {
 		String wordDecoded = null;
 		int min = Integer.MAX_VALUE;
 		int minDistance = 0;
-		ArrayList<String> decodedWords = new ArrayList<>();
+		ArrayList<String> decodedWords = new ArrayList<String>();
 		int random = 0;
 		
 		for (int i = 0; i < this.code.length; i++) {
@@ -168,5 +168,22 @@ public class HammingDistance {
 		
 		return wordDecoded;
 		
+	}
+
+	public String[] getCode() {
+		return code;
+	}
+
+	public void setCode(String s) {
+		String[] newCode = createMatrix(s, calculateNumWords(s));
+		this.code = newCode;
+	}
+
+	public int getNumWords() {
+		return numWords;
+	}
+
+	public void setNumWords(int numWords) {
+		this.numWords = numWords;
 	}
 }
