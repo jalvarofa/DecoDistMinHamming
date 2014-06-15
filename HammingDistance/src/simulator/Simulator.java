@@ -2,7 +2,6 @@ package simulator;
 
 import hamming.HammingDistance;
 
-import java.util.Random;
 
 /**
  * 
