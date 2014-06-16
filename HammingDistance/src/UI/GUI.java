@@ -59,14 +59,14 @@ public class GUI extends JFrame {
 	 */
 	public GUI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 650, 464);
+		setBounds(100, 100, 650, 350);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(12, 12, 638, 452);
+		panel.setBounds(12, 12, 638, 310);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
@@ -81,7 +81,7 @@ public class GUI extends JFrame {
 		textFieldCode.setColumns(10);
 		
 		JLabel label_1 = new JLabel("Palabra:");
-		label_1.setBounds(6, 90, 139, 15);
+		label_1.setBounds(446, 173, 70, 15);
 		panel.add(label_1);
 		
 		JLabel label_2 = new JLabel("Porcentaje:");
@@ -95,7 +95,7 @@ public class GUI extends JFrame {
 				JOptionPane.showMessageDialog(new JPanel(), UI.decoderAuto(textFieldWord.getText()), "DECODED", JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
-		button_1.setBounds(6, 400, 139, 25);
+		button_1.setBounds(6, 264, 139, 25);
 		panel.add(button_1);
 		
 		JButton button_2 = new JButton("Simular");
@@ -108,26 +108,29 @@ public class GUI extends JFrame {
 				JOptionPane.showMessageDialog(new JPanel(), message, "SIMULATOR", JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
-		button_2.setBounds(267, 400, 87, 25);
+		button_2.setBounds(267, 264, 87, 25);
 		panel.add(button_2);
 		
 		JButton button = new JButton("Dist. Minima");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				UI = new UI(textFieldCode.getText());
-				labelShowDistMin.setText(""+UI.getMinimumDistance());
-				labelShowDistMin.setVisible(true);
-				labelShowDetectErrors.setText(""+(UI.getMinimumDistance()-1));
-				labelShowCorrectErrors.setText(""+ ((UI.getMinimumDistance()-1)/2));
+				if (!textFieldCode.getText().equals("")) {
+					UI = new UI(textFieldCode.getText());
+					labelShowDistMin.setText(""+UI.getMinimumDistance());
+					labelShowDistMin.setVisible(true);
+					labelShowDetectErrors.setText(""+(UI.getMinimumDistance()-1));
+					labelShowCorrectErrors.setText(""+ ((UI.getMinimumDistance()-1)/2));
+					
+					labelShowPercent.setText(String.valueOf(UI.simulator.getP()));
+				}
 				
-				labelShowPercent.setText(String.valueOf(UI.simulator.getP()));
 			}
 		});
-		button.setBounds(505, 400, 121, 25);
+		button.setBounds(505, 264, 121, 25);
 		panel.add(button);
 		
 		textFieldWord = new JTextField();
-		textFieldWord.setBounds(72, 88, 114, 19);
+		textFieldWord.setBounds(512, 171, 114, 19);
 		panel.add(textFieldWord);
 		textFieldWord.setColumns(10);
 		
@@ -146,37 +149,37 @@ public class GUI extends JFrame {
 		textFieldPercent.setColumns(10);
 		
 		JLabel lblDistanciaMinimaDe = new JLabel("Distancia Minima de Hamming: ");
-		lblDistanciaMinimaDe.setBounds(72, 164, 201, 15);
+		lblDistanciaMinimaDe.setBounds(12, 90, 201, 15);
 		panel.add(lblDistanciaMinimaDe);
 		
 		labelShowDistMin = new JLabel("");
-		labelShowDistMin.setBounds(284, 164, 70, 15);
+		labelShowDistMin.setBounds(224, 90, 70, 15);
 		panel.add(labelShowDistMin);
 		
 		lblErroresQueDetecta = new JLabel("Errores que detecta:");
-		lblErroresQueDetecta.setBounds(143, 191, 130, 15);
+		lblErroresQueDetecta.setBounds(83, 117, 130, 15);
 		panel.add(lblErroresQueDetecta);
 		
 		labelShowDetectErrors = new JLabel("");
-		labelShowDetectErrors.setBounds(284, 191, 70, 15);
+		labelShowDetectErrors.setBounds(224, 117, 70, 15);
 		panel.add(labelShowDetectErrors);
 		
 		JLabel lblErroresQueCorrige = new JLabel("Errores que corrige:");
 		lblErroresQueCorrige.setHorizontalAlignment(SwingConstants.CENTER);
-		lblErroresQueCorrige.setBounds(143, 218, 130, 15);
+		lblErroresQueCorrige.setBounds(83, 144, 130, 15);
 		panel.add(lblErroresQueCorrige);
 		
 		labelShowCorrectErrors = new JLabel("");
-		labelShowCorrectErrors.setBounds(284, 218, 70, 15);
+		labelShowCorrectErrors.setBounds(224, 144, 70, 15);
 		panel.add(labelShowCorrectErrors);
 		
 		JLabel lblPorcentajeDeRuido = new JLabel("Porcentaje de ruido:");
 		lblPorcentajeDeRuido.setHorizontalAlignment(SwingConstants.CENTER);
-		lblPorcentajeDeRuido.setBounds(143, 245, 130, 16);
+		lblPorcentajeDeRuido.setBounds(83, 171, 130, 16);
 		panel.add(lblPorcentajeDeRuido);
 		
 		labelShowPercent = new JLabel("");
-		labelShowPercent.setBounds(284, 245, 61, 16);
+		labelShowPercent.setBounds(224, 171, 61, 16);
 		panel.add(labelShowPercent);
 		
 		JLabel labelShowDecodedWord = new JLabel("");
