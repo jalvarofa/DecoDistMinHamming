@@ -1,7 +1,5 @@
 package UI;
 
-import javax.swing.JPanel;
-
 import hamming.HammingDistance;
 import simulator.Simulator;
 
@@ -9,7 +7,6 @@ public class UI {
 	
 	public HammingDistance hammingDistance;
 	public Simulator simulator;
-	private String code;
 	
 	public UI(String s){
 		this.hammingDistance = new HammingDistance(s);
@@ -30,10 +27,6 @@ public class UI {
 	
 	public void simulateWords(int numSimulations){
 		this.simulator.simulateWords(numSimulations);
-	}
-	
-	public void setCode(String c){
-		this.code = c;
 	}
 	
 	public String decoderAuto(String c){

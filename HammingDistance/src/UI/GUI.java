@@ -1,41 +1,32 @@
 package UI;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
-import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTextField;
-import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import net.miginfocom.swing.MigLayout;
-import com.jgoodies.forms.layout.FormLayout;
-import com.jgoodies.forms.layout.ColumnSpec;
-import com.jgoodies.forms.factories.FormFactory;
-import com.jgoodies.forms.layout.RowSpec;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 import javax.swing.SwingConstants;
-import javax.swing.JComboBox;
 
 public class GUI extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private UI UI;
 	private JTextField textFieldCode;
 	private JTextField textFieldWord;
-	private JTextField textFieldPercent;
 	private JLabel labelShowDistMin;
 	private JLabel lblErroresQueDetecta;
 	private JLabel labelShowDetectErrors;
 	private JLabel labelShowCorrectErrors;
-	private JLabel labelShowPercent;
 	private JTextField textFieldNumSimulations;
 
 	/**
